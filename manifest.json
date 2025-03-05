@@ -1,0 +1,31 @@
+{
+    "manifest_version": 3,
+    "name": "Discord Auto Link Opener",
+    "version": "1.0",
+    "description": "Automatically opens links from a Discord bot with optional filters.",
+    "permissions": [
+        "tabs",
+        "storage",
+        "activeTab",
+        "scripting"
+    ],
+    "host_permissions": [
+        "*://discord.com/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://discord.com/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    }
+}
